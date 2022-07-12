@@ -109,6 +109,25 @@ object LogFormatSpec extends ZIOSpecDefault {
         assertTrue(result == s"user_id=$annotationValue")
       }
     },
+//    test("newtype annotation") {
+//      val format = annotation(TestLogAnnotation.ClientId)
+//      check(Gen.string) { annotationValue =>
+//        val result = format.toLogger(
+//          Trace.empty,
+//          FiberId.None,
+//          LogLevel.Info,
+//          () => "",
+//          Cause.empty,
+//          FiberRefs.empty.updatedAs(FiberId.Runtime(0, 0, Trace.empty))(
+//            logContext,
+//            LogContext.empty.annotate(TestLogAnnotation.ClientId, types.ClientId(annotationValue))
+//          ),
+//          Nil,
+//          Map.empty
+//        )
+//        assertTrue(result == s"client_id=$annotationValue")
+//      }
+//    },
     test("empty annotation") {
       val format = annotation("test")
       val result = format.toLogger(

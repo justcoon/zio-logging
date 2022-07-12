@@ -21,6 +21,7 @@ inThisBuild(
 )
 
 val ZioVersion           = "2.0.0"
+val ZioPreludeVersion    = "1.0.0-RC15"
 val scalaJavaTimeVersion = "2.3.0"
 val slf4jVersion         = "1.7.36"
 val logbackVersion       = "1.2.11"
@@ -54,7 +55,8 @@ lazy val core    = crossProject(JSPlatform, JVMPlatform)
       "dev.zio" %%% "zio"          % ZioVersion,
       "dev.zio" %%% "zio-streams"  % ZioVersion,
       "dev.zio" %%% "zio-test"     % ZioVersion % Test,
-      "dev.zio" %%% "zio-test-sbt" % ZioVersion % Test
+      "dev.zio" %%% "zio-test-sbt" % ZioVersion % Test,
+      "dev.zio" %%% "zio-prelude"  % ZioPreludeVersion % Test
     ),
     testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework"))
   )
@@ -134,6 +136,7 @@ lazy val examples = project
   .settings(
     publish / skip := true,
     libraryDependencies ++= Seq(
+      "dev.zio" %%% "zio-prelude"  % ZioPreludeVersion,
       "ch.qos.logback"       % "logback-classic"          % logbackVersion,
       "net.logstash.logback" % "logstash-logback-encoder" % "6.6",
       "dev.zio"            %%% "zio-test"                 % ZioVersion % Test,
