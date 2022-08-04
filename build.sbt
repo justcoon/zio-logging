@@ -146,6 +146,7 @@ lazy val examples = project
     libraryDependencies ++= Seq(
       "ch.qos.logback"       % "logback-classic"          % logbackVersion,
       "net.logstash.logback" % "logstash-logback-encoder" % "6.6",
+      "io.d11"                       %% "zhttp"                         % "2.0.0-RC10",
       "dev.zio"            %%% "zio-test"                 % ZioVersion % Test,
       "dev.zio"            %%% "zio-test-sbt"             % ZioVersion % Test
     )
