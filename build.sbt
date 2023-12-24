@@ -55,7 +55,7 @@ inThisBuild(
     zioVersion             := "2.0.19",
     scala212               := "2.12.17",
     scala213               := "2.13.10",
-    scala3                 := "3.3.0"
+    scala3                 := "3.3.1"
   )
 )
 
@@ -167,7 +167,7 @@ lazy val slf4j2Bridge = project
   .settings(
     libraryDependencies ++= Seq(
       "org.slf4j"               % "slf4j-api"               % slf4j2Version,
-      "org.scala-lang.modules" %% "scala-collection-compat" % "2.8.1"
+      "org.scala-lang.modules" %% "scala-collection-compat" % scalaCollectionCompatVersion
     )
   )
   .settings(enableZIO())
@@ -198,8 +198,8 @@ lazy val examplesCore = project
   .settings(
     publish / skip := true,
     libraryDependencies ++= Seq(
-      "dev.zio" %% "zio-metrics-connectors" % zioMetricsConnectorsVersion,
-      "dev.zio" %% "zio-config-typesafe"    % zioConfig
+      "dev.zio" %% "zio-metrics-connectors-prometheus" % zioMetricsConnectorsVersion,
+      "dev.zio" %% "zio-config-typesafe"               % zioConfig
     )
   )
 
