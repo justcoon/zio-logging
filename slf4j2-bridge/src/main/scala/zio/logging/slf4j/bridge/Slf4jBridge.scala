@@ -68,7 +68,7 @@ object Slf4jBridge {
                    ZIO.succeed(
                      org.slf4j.LoggerFactory
                        .getILoggerFactory()
-                       .asInstanceOf[LoggerFactory]
+                       .asInstanceOf[ZioLoggerFactory]
                        .attachRuntime(new ZioLoggerRuntime(runtime, filter))
                    )
                  }
